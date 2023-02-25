@@ -1,1 +1,17 @@
-https://ebikes.ca/learn/pedal-assist.html
+Basics of Pedal Assist System technologies and sensing - https://ebikes.ca/learn/pedal-assist.html
+
+Basics of motor options and controllers - https://ebikes.ca/getting-started/hub-motor-options.html 
+    - on brushless DC motors or synchronous AC motors, you need to use a control algorithm called Field-Oriented Control
+    - I have some experience with this from Formula but it's complicated
+
+Field-Oriented Control - https://www.pmdcorp.com/resources/type/articles/get/field-oriented-control-foc-a-deep-dive-article 
+    (this is bringing back bad memories LOL)
+
+Deep dive on motor power - https://ebikes.ca/learn/power-ratings.html 
+    - major takeaway: motors should be judged on torque produced rather than max power
+
+Motor simulator - https://ebikes.ca/tools/simulator.html 
+
+Basic intro to general concept of motor controller - https://en.wikipedia.org/wiki/Motor_controller
+
+Inrush current management - https://www.ti.com/lit/an/slva670a/slva670a.pdf?ts=1677319706257&ref_url=https%253A%252F%252Fwww.google.com%252F
