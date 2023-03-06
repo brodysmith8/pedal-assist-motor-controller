@@ -1,3 +1,3 @@
 Initially, for software, I am assuming:
-    - brushless DC motor 
+    - brushless AC motor 
     - field-oriented control as our control algorithm 
