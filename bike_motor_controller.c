@@ -1,6 +1,6 @@
-#import "seven_segment_display.h"
-#import "foc.h"
-#import "stdio.h"
+#include "seven_segment_display.h"
+#include "foc.h"
+#include "stdio.h"
 
 #define SW_BASE 0xFF200040
 #define GPIO_BASE 0xFF200060

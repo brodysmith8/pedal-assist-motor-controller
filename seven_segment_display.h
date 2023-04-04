@@ -1,7 +1,7 @@
 #ifndef SEVEN_SEGMENT_DISPLAY_H
 #define SEVEN_SEGMENT_DISPLAY_H
-#import "math.h"
-#import "stdlib.h"
+#include "math.h"
+#include "stdlib.h"
 
 #define HEX3_HEX0_BASE 0xFF200020
 #define HEX5_HEX4_BASE 0xFF200030

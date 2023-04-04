@@ -1,7 +1,7 @@
 #ifndef SEVEN_SEGMENT_DISPLAY_H
 #define SEVEN_SEGMENT_DISPLAY_H
-#import "math.h"
-#import "stdlib.h"
+#include "math.h"
+#include "stdlib.h"
 
 #define HEX3_HEX0_BASE 0xFF200020
 #define HEX5_HEX4_BASE 0xFF200030
@@ -352,7 +352,7 @@ void foc(double *id, double *iq, double *target_torque_nm, double *rotor_positio
     //inverse_clarke_transform(rotation_vector_buffer);                            // (alpha, beta, 0) -> (a, b, c) new phase voltages are ready to be sent to inverter now
 }
 
-#import "stdio.h"
+#include "stdio.h"
 
 #define SW_BASE 0xFF200040
 #define GPIO_BASE 0xFF200060
