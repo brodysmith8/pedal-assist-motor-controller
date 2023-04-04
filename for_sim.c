@@ -400,14 +400,14 @@ void read_potentiometers(int *voltage_1, int *voltage_2) {
     voltage_capture = *adc_channel0_ptr;
     // printf("vc: %d\n", voltage_capture);
 
-    if (voltage_capture & 0x10000) { // set to 0x8000 for lab
+    if (voltage_capture & 0x8000) { // set to 0x8000 for lab, 0x10000 for sim
         *voltage_1 = voltage_capture & 0b0000111111111111;
         //printf("v_1: %d\n", *voltage_1);
         start_adc();
     }
 
     voltage_capture = *adc_channel1_ptr;
-    if (voltage_capture & 0x10000) {
+    if (voltage_capture & 0x8000) {
         *voltage_2 = voltage_capture & 0b0000111111111111;
         start_adc();
     }
