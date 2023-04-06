@@ -806,10 +806,10 @@ int main(void) {
 
         // rotor_position_rads += 0.00001; // get_rotary_encoder_position(&rotor_position_rads); // with GPIO (potentiometer 2)
 
-        printf("v_alpha: %f\nv_beta: %f\nphase angle rads: %f\nphase angle degs: %f\nrotor position: %f\ntorque force: \n\n",
-         inverter_voltage_control_vector.vec[0],
-                inverter_voltage_control_vector.vec[1], phase_angle_rads, rads_to_degrees(phase_angle_rads), rotor_position_rads);//,
-        //        calculate_actual_torque(inverter_voltage_control_vector.vec[0], inverter_voltage_control_vector.vec[1]));
+        //printf("v_alpha: %f\nv_beta: %f\nphase angle rads: %f\nphase angle degs: %f\nrotor position: %f\ntorque force: \n\n",
+        //  inverter_voltage_control_vector.vec[0],
+        //         inverter_voltage_control_vector.vec[1], phase_angle_rads, rads_to_degrees(phase_angle_rads), rotor_position_rads);//,
+        //      calculate_actual_torque(inverter_voltage_control_vector.vec[0], inverter_voltage_control_vector.vec[1]));
 
         get_display_mode(&display_mode); // from switch bank
         switch (display_mode) {
