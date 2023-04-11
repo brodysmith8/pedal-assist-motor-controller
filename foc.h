@@ -4,7 +4,7 @@
 
 #ifndef FOC_H
 #define FOC_H
-#include "math.h"
+#include "math_functions.h"
 
 // motor-specific parameters
 #define MOTOR_INDUCTANCE_HENRY 0.0002
@@ -16,11 +16,11 @@
 #define MOTOR_POLE_PAIRS (MOTOR_POLES / 2.0)
 
 // precalculated constants
-#define INVERSE_ROOT_TWO 1.0 / sqrt(2.0)
-#define INVERSE_ROOT_THREE 1.0 / sqrt(3.0)
-#define INVERSE_ROOT_SIX 1.0 / sqrt(6.0)
+#define INVERSE_ROOT_TWO (1.0 / sqrt(2.0))
+#define INVERSE_ROOT_THREE (1.0 / sqrt(3.0))
+#define INVERSE_ROOT_SIX (1.0 / sqrt(6.0))
 #define ROOT_TWO_OVER_THREE sqrt(2.0 / 3.0)
-#define TWO_PI 6.283
+#define TWO_PI 6.28318530718
 #define RADS_TO_DEG_MULTIPLIER 57.2957795
 
 // easier to do this than passing around array pointers everywhere

@@ -60,6 +60,10 @@ double modf(double x, double* y) {
 	return x - u.f;
 }
 
+int abs(int x) {
+    return (x >= 0 ? x : -x);
+}
+
 // https://git.musl-libc.org/cgit/musl/tree/src/math/fabs.c
 double fabs(double x) {
     union {double f; unsigned long long int i;} u = {x};
@@ -67,8 +71,8 @@ double fabs(double x) {
 	return u.f;
 }
 
-int round(double number) {
-    return (number >= 0) ? (int)(number + 0.5) : (int)(number - 0.5);
+int round_f(double number) {
+    return (number >= 0.0) ? (int)(number + 0.5) : (int)(number - 0.5);
 }
 
 int round_i(int number) {

@@ -48,14 +48,14 @@ void read_potentiometers(int *voltage_1, int *voltage_2) {
     voltage_capture = *adc_channel0_ptr;
     // printf("vc: %d\n", voltage_capture);
 
-    if (voltage_capture & 0x8000) { // set to 0x8000 for lab, 0x10000 for sim
+    if (voltage_capture & 0x10000) { // set to 0x8000 for lab, 0x10000 for sim
         *voltage_1 = voltage_capture & 0b0000111111111111;
         //printf("v_1: %d\n", *voltage_1);
         start_adc();
     }
 
     voltage_capture = *adc_channel1_ptr;
-    if (voltage_capture & 0x8000) {
+    if (voltage_capture & 0x10000) {
         *voltage_2 = voltage_capture & 0b0000111111111111;
         start_adc();
     }
@@ -104,10 +104,10 @@ void get_display_mode(int *display_mode_buffer) { *display_mode_buffer = *(int *
 // potentiometer 1
 void get_input_torque(double *input_torque) {
     // round up in case of inaccurate ADC
-    if (potentiometer_1_voltage > 4080.0) {
-        *input_torque = MOTOR_MAX_TORQUE_NM;
-        return;
-    }
+    // if (potentiometer_1_voltage > 4080.0) {
+    //     *input_torque = MOTOR_MAX_TORQUE_NM;
+    //     return;
+    // }
 
     *input_torque = potentiometer_1_voltage * ADC_TO_NM_MULTIPLER;
     //printf("torque in adc voltage: %d\nmultiplier: %f\ntorque in: %f\n", potentiometer_1_voltage, ADC_TO_NM_MULTIPLER, *input_torque);
@@ -116,10 +116,10 @@ void get_input_torque(double *input_torque) {
 // potentiometer 2
 void get_rotor_position(double *rotor_position_rads) {
     // round up in case of inaccurate ADC
-    if (potentiometer_2_voltage > 4080.0) {
-        *rotor_position_rads = TWO_PI;
-        return;
-    }
+    // if (potentiometer_2_voltage > 4080.0) {
+    //     *rotor_position_rads = TWO_PI;
+    //     return;
+    // }
 
     // the faster way is just multiplying it by a float multiplier with less decimal places, but that's 
     // really inaccurate because the float but still works for about the first two decimal places 
@@ -199,10 +199,10 @@ int main(void) {
 
         // rotor_position_rads += 0.00001; // get_rotary_encoder_position(&rotor_position_rads); // with GPIO (potentiometer 2)
 
-        printf("v_alpha: %f\nv_beta: %f\nphase angle rads: %f\nphase angle degs: %f\nrotor position: %f\ntorque force: \n\n",
-         inverter_voltage_control_vector.vec[0],
-                inverter_voltage_control_vector.vec[1], phase_angle_rads, rads_to_degrees(phase_angle_rads), rotor_position_rads);//,
-        //        calculate_actual_torque(inverter_voltage_control_vector.vec[0], inverter_voltage_control_vector.vec[1]));
+        //printf("v_alpha: %f\nv_beta: %f\nphase angle rads: %f\nphase angle degs: %f\nrotor position: %f\ntorque force: \n\n",
+        //  inverter_voltage_control_vector.vec[0],
+        //         inverter_voltage_control_vector.vec[1], phase_angle_rads, rads_to_degrees(phase_angle_rads), rotor_position_rads);//,
+        //      calculate_actual_torque(inverter_voltage_control_vector.vec[0], inverter_voltage_control_vector.vec[1]));
 
         get_display_mode(&display_mode); // from switch bank
         switch (display_mode) {

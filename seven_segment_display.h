@@ -1,7 +1,6 @@
 #ifndef SEVEN_SEGMENT_DISPLAY_H
 #define SEVEN_SEGMENT_DISPLAY_H
-#include "math.h"
-#include "stdlib.h"
+#include "math_functions.h"
 
 #define HEX3_HEX0_BASE 0xFF200020
 #define HEX5_HEX4_BASE 0xFF200030
@@ -86,13 +85,13 @@ void display_floating_point(double *num, int decimal_places, int can_be_negative
     double fractional_portion_f = modf(*num, &integral_portion_f);
 
     int integral_portion = (int)fabs(integral_portion_f);
-    int fractional_portion = (int)fabs(round(fractional_portion_f * pow(10.0, (double)decimal_places)));
+    int fractional_portion = abs(round_f(fractional_portion_f * pow(10.0, (double)decimal_places)));
     //printf("integral portion: %d\n", integral_portion);
     unsigned int digits[6] = {0};
     int idx = 0;
     // zero-fill first in case fractional portion is les sthan max
     for (int i = 0; i < 6; i++) {
-        digits[i] = 0;
+        digits[i] = SEVEN_SEG_DISPLAY_PATTERN_LOOKUP[0];
     }
 
     do {

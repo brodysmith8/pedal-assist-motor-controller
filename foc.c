@@ -136,7 +136,7 @@ void calculate_output_voltages(DoubleVector3D *rotation_vector_buffer, double *t
 }
 
 //
-void normalize_voltages(DoubleVector3D* rotation_vector_buffer) {
+void normalize_voltages(DoubleVector3D *rotation_vector_buffer) {
     double sum = fabs(rotation_vector_buffer->vec[0]) + fabs(rotation_vector_buffer->vec[1]) + fabs(rotation_vector_buffer->vec[2]);
     rotation_vector_buffer->vec[0] = (rotation_vector_buffer->vec[0] / sum) * 5.0;
     rotation_vector_buffer->vec[1] = (rotation_vector_buffer->vec[1] / sum) * 5.0;
@@ -147,6 +147,8 @@ void normalize_voltages(DoubleVector3D* rotation_vector_buffer) {
 // rotate at the same freq.) we don't need to account for slip difference, so all we need is rotor position in rads
 // given by rotary encoder in motor (thank God)
 void foc(double *id, double *iq, double *target_torque_nm, double *rotor_position_rads, DoubleVector3D *rotation_vector_buffer, double *phase_angle_rads) {
+    DoubleVector3D flux_linkage_buffer;
+    DoubleVector3D output_voltage_buffer;
     double cosine = 0.0;
     double sine = 0.0;
 
